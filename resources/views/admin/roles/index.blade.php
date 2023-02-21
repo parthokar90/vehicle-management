@@ -19,6 +19,12 @@
 @endif
 
 <div class="card">
+<div class="container-fluid">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left  pt-4">
+            <h2>Vehicle Management</h2>
+        </div>
+     </div>
   <div class="card-body">
   <div class="pull-right pb-2 pt-2">
            @can('role-create')

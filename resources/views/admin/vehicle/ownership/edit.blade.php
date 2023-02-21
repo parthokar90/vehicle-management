@@ -30,14 +30,14 @@
 </div>
 {!! Form::model($user, ['method' => 'PATCH','route' => ['vehicle-ownership.update', $user->id]]) !!}
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="col-xs-12 col-sm-12 col-md-4">
         <div class="form-group">
             <strong>Ownership:</strong>
             {!! Form::text('vehicle_ownership', null, array('placeholder' => 'Ownership','class' => 'form-control')) !!}
         </div>
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <button type="submit" class="btn btn-primary">Update</button>
     </div>
 </div>

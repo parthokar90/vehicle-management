@@ -23,21 +23,21 @@
         <div class="pull-left pl-1">
             <h2>Edit Vehicle Group</h2>
         </div>
-        <div class="pull-right pl-1">
+        <div class="pull-right pt-4 pr-4">
             <a class="btn btn-primary" href="{{ route('vehicle-group.index') }}"> Back</a>
         </div>
     </div>
 </div>
 {!! Form::model($user, ['method' => 'PATCH','route' => ['vehicle-group.update', $user->id]]) !!}
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="col-xs-12 col-sm-12 col-md-4">
         <div class="form-group">
             <strong>Group Name:</strong>
             {!! Form::text('group', null, array('placeholder' => 'Group Name','class' => 'form-control')) !!}
         </div>
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <button type="submit" class="btn btn-primary">Update</button>
     </div>
 </div>

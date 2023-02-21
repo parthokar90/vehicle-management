@@ -3,13 +3,7 @@
 
 @section('content')
 <section class="content">
-<div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2>Employee Management</h2>
-        </div>
-    </div>
-</div>
+
 
 
 @if ($message = Session::get('success'))
@@ -19,6 +13,12 @@
 @endif
 
 <div. class="card">
+<div class="container-fluid">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left  pt-4">
+            <h2>Employee Management</h2>
+        </div>
+     </div>
   <div class="card-body">
   @can('user-create')
         <div class="pull-right pt-4 pb-4">
@@ -26,6 +26,7 @@
         </div>
         @endcan
 <table id="example" class="table table-bordered">
+<thead>
  <tr>
    <th>No</th>
    <th>Name</th>
@@ -34,6 +35,7 @@
    <th>Designation</th>
    <th width="280px">Action</th>
  </tr>
+</thead>
  @foreach ($data as $key => $user)
   <tr>
     <td>{{ ++$i }}</td>
@@ -61,10 +63,7 @@
  @endforeach
 </table>
 </div>
-</div.
-
-
-{!! $data->render() !!}
+</div>
 
 
 </section>

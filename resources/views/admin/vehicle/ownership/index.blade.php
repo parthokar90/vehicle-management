@@ -1,13 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <section class="content">
-<div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2>Vehicle Ownership Management</h2>
-        </div>
-    </div>
-</div>
+
 
 
 @if ($message = Session::get('success'))
@@ -17,6 +11,12 @@
 @endif
 
 <div. class="card">
+<div class="container-fluid">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left  pt-4">
+            <h2>Vehicle Ownership Management</h2>
+        </div>
+     </div>
   <div class="card-body">
 
         <div class="pull-right pt-4 pb-4">

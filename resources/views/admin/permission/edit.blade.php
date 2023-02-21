@@ -32,7 +32,7 @@
 <div class="row">
 
   @if($parentPermission->count()>0)
-    <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="col-xs-12 col-sm-12 col-md-4">
         <div class="form-group">
             <strong>Select Parent Permission:</strong>
             <select name="parent_id" class="form-control">
@@ -46,14 +46,14 @@
     @endif 
 
 
-    <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="col-xs-12 col-sm-12 col-md-4">
         <div class="form-group">
             <strong>Permission:</strong>
             {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
         </div>
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="col-xs-12 col-sm-12 col-md-4">
         <div class="form-group">
             <strong>Resource:</strong>
             {!! Form::text('resource', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
@@ -61,7 +61,7 @@
     </div>
 
  
-    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </div>

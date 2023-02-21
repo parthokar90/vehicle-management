@@ -21,7 +21,7 @@
     <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left pl-4 pt-4">
-            <h2>Create New User</h2>
+            <h2>Create New Employee</h2>
         </div>
         <div class="pull-right pt-4 pr-4">
             <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
@@ -78,7 +78,7 @@
             {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4.12jhklh.... text-center">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </div>

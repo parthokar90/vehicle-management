@@ -29,7 +29,7 @@
         <div class="pull-left pl-4 pt-4">
             <h2>Assign Permission</h2>
         </div>
-        <div class="pull-right pl-4">
+        <div class="pull-right pt-4 pr-4">
             <a class="btn btn-primary" href="{{ route('permit.index') }}"> Back</a>
         </div>
     </div>

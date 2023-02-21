@@ -24,7 +24,7 @@
             <h2>Create New Type</h2>
         </div>
         <div class="pull-right pt-4 pr-4">
-            <a class="btn btn-primary" href="{{ route('vehicle-group.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('vendor-type.index') }}"> Back</a>
         </div>
     </div>
 </div>

@@ -23,7 +23,7 @@
         <div class="pull-left pl-4 pt-4">
             <h2>Create New Status</h2>
         </div>
-        <div class="pull-right pl-4">
+        <div class="pull-right pt-4 pr-4">
             <a class="btn btn-primary" href="{{ route('vehicle-status.index') }}"> Back</a>
         </div>
     </div>
@@ -31,13 +31,13 @@
         <div class="card-body">
 -{!! Form::open(array('route' => 'vehicle-status.store','method'=>'POST')) !!}
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="col-xs-12 col-sm-12 col-md-4">
         <div class="form-group">
             <strong>Group Name:</strong>
             {!! Form::text('vehicle_status', null, array('placeholder' => 'Status','class' => 'form-control')) !!}
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </div>
