@@ -15,30 +15,69 @@
   </div>
 @endif
 
+<style>
+.form-control {
+    width: 80%;
+    height: 30px;
+    padding: 5px 12px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #e2e5ec;
+    border-radius: 4px;
+    float:right;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 10px 300px;
+}
+.card_header{
+    border-bottom:1px solid #ccc;
+    padding:15px;
+}
+.kt-header--fixed .kt-wrapper{
+    padding-top:0px!important;
+}
+.card{
+    margin:10px;
+}
+</style>
+
+
 <div class="container-fluid">
     <div class="card">
-    <div class="card-body">
-    <div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left pl-1">
-            <h2>Edit New Type</h2>
-        </div>
-        <div class="pull-right pl-1">
-            <a class="btn btn-primary" href="{{ route('staff-type.index') }}"> Back</a>
+
+        <div class="col-lg-12 card_header">
+            <h5> <i class="flaticon2-shelter"></i> Edit Staff Type</h5>
         </div>
     </div>
 </div>
+
+<div class="container-fluid">
+    <div class="card">
+    <div class="col-lg-12 card_header">
+    Edit Staff Type
+    </div>
+    <div class="card-body">
+    <div class="row">
+   
+</div>
 {!! Form::model($user, ['method' => 'PATCH','route' => ['staff-type.update', $user->id]]) !!}
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Department Name:</strong>
+            <strong>Type:</strong>
             {!! Form::text('staff_type', null, array('placeholder' => 'Type','class' => 'form-control')) !!}
         </div>
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-danger" style="float:left">Reset</button>
+        <button type="submit" class="btn btn-primary" style="float:right">Submit</button>
     </div>
 </div>
 {!! Form::close() !!}

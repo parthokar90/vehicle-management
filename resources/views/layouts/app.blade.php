@@ -51,15 +51,9 @@
 
 				<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
 
-					<!-- begin:: Header -->
-					  @include('layouts.common.top_header')
-					<!-- end:: Header -->
 
 					@yield('content')
 
-					<!-- begin:: Footer -->
-					 @include('layouts.common.copyright')
-					<!-- end:: Footer -->
 				</div>
 			</div>
 		</div>

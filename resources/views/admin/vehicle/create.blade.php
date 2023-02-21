@@ -16,34 +16,71 @@
 @endif
 
 
+<style>
+.form-control {
+    width: 80%;
+    height: 30px;
+    padding: 5px 12px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #e2e5ec;
+    border-radius: 4px;
+    float:right;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 10px 300px;
+}
+.card_header{
+    border-bottom:1px solid #ccc;
+    padding:15px;
+}
+.kt-header--fixed .kt-wrapper{
+    padding-top:0px!important;
+}
+.card{
+    margin:10px;
+}
+</style>
+
+
 <div class="container-fluid">
     <div class="card">
-    <div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left pl-4 pt-4">
-            <h2>Create New Vehicle</h2>
-        </div>
-        <div class="pull-right pt-4 pr-4">
-            <a class="btn btn-primary" href="{{ route('vehicle.index') }}"> Back</a>
+        <div class="col-lg-12 card_header">
+            <h5> <i class="flaticon2-shelter"></i> Add Vehicle</h5>
         </div>
     </div>
 </div>
+
+
+
+<div class="container-fluid">
+    <div class="card">
+    
+    <div class="col-lg-12 card_header">
+        Add Vehicle
+    </div>
         <div class="card-body">
 -{!! Form::open(array('route' => 'vehicle.store','method'=>'POST','enctype'=>'multipart/form-data')) !!}
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Vehicle Name:</strong>
             {!! Form::text('name', null, array('placeholder' => 'Vehicle Name','class' => 'form-control')) !!}
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Vehicle Plate No:</strong>
             {!! Form::text('plate_no', null, array('placeholder' => 'Vehicle Plate No','class' => 'form-control')) !!}
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Vehicle Type:</strong>
             <select class="form-control" name="type">
@@ -53,37 +90,40 @@
             </select>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Model Name:</strong>
             {!! Form::text('model', null, array('placeholder' => 'Model Name','class' => 'form-control')) !!}
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Vehicle Color:</strong>
             {!! Form::text('color', null, array('placeholder' => 'Vehicle Color','class' => 'form-control')) !!}
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Vehicle Year:</strong>
             {!! Form::text('year', null, array('placeholder' => 'Vehicle Year','class' => 'form-control')) !!}
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Vehicle Engine No:</strong>
             {!! Form::text('engine_no', null, array('placeholder' => 'Vehicle Engine No','class' => 'form-control')) !!}
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Avarage Mileage:</strong>
             {!! Form::text('milage', null, array('placeholder' => 'Avarage Mileage','class' => 'form-control')) !!}
+          
+            
+       
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Vehicle Ownership:</strong>
             <select class="form-control" name="owner_ship">
@@ -93,7 +133,7 @@
             </select>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Vehicle Group:</strong>
             <select class="form-control" name="group_id">
@@ -103,13 +143,13 @@
             </select>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Photo:</strong>
             <input type="file" name="photo" class="form-control">
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Vehicle Status:</strong>
             <select class="form-control" name="status">
@@ -119,8 +159,9 @@
             </select>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-        <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <button type="reset" class="btn btn-danger" style="float:left">Reset</button>
+        <button type="submit" class="btn btn-primary" style="float:right">Submit</button>
     </div>
 </div>
 {!! Form::close() !!}

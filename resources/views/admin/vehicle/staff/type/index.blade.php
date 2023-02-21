@@ -11,12 +11,46 @@
 </div>
 @endif
 
+<style>
+.form-control {
+    width: 80%;
+    height: 30px;
+    padding: 5px 12px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #e2e5ec;
+    border-radius: 4px;
+    float:right;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.card_header{
+    border-bottom:1px solid #ccc;
+    padding:15px;
+}
+.kt-header--fixed .kt-wrapper{
+    padding-top:0px!important;
+}
+.card{
+    margin:10px;
+}
+</style>
+
+
+
+<div class="card">
+    <div class="col-lg-12 card_header">
+        <h5> <i class="flaticon2-shelter"></i> View Staff Type</h5>
+    </div>
+</div>
+
 <div class="card">
 <div class="container-fluid">
     <div class="col-lg-12 margin-tb">
-        <div class="pull-left  pt-4">
-            <h2>Type Management</h2>
-        </div>
+        
      </div>
   <div class="card-body">
 

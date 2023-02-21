@@ -70,6 +70,5 @@
 
 <link href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
 <link href="https://cdn.datatables.net/buttons/2.3.4/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
-
 <!--end::Layout Skins -->
 <link rel="shortcut icon" href="{{asset('admin/assets/media/logos/favicon.ico')}}" />
