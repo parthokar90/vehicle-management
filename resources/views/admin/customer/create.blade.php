@@ -46,6 +46,9 @@
 .card{
     margin:10px;
 }
+.nav-link {
+  color:#000000 !important;
+}
 </style>
 
 
@@ -88,37 +91,317 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-g
-  </div>
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-c
-  </div>
-  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-p
-  </div>
-  <div class="tab-pane fade" id="contacts" role="tabpanel" aria-labelledby="contact-tab">
-a
-  </div>
-</div>
-
-
-
-
-
-
-
-<div class="row">
+  <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Type:</strong>
-            {!! Form::text('type', null, array('placeholder' => 'Type','class' => 'form-control')) !!}
+            <strong>Customer Group:*</strong>
+            <select class="form-control" name="customer_group">
+            <option value="">Select</option>
+                <option value="01">01</option>              
+                <option value="02">02</option>              
+                <option value="03">03</option>              
+                <option value="04">04</option>              
+            <select>
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Employee:</strong>
+            <select class="form-control" name="employee">
+            <option value="">Select</option>
+                <option value="01">01</option>              
+                <option value="02">02</option>              
+                <option value="03">03</option>              
+                <option value="04">04</option>               
+            <select>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Customer Name:*</strong>
+            {!! Form::text('customer_name', null, array('placeholder' => 'Customer Name','class' => 'form-control')) !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Company Name:*</strong>
+            {!! Form::text('company_name', null, array('placeholder' => 'Company Name','class' => 'form-control')) !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Father Name:</strong>
+            {!! Form::text('father_name', null, array('placeholder' => 'Father Name','class' => 'form-control')) !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Mother Name:</strong>
+            {!! Form::text('mother_name', null, array('placeholder' => 'Mother Name','class' => 'form-control')) !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Date of Birth:*</strong>
+            {!! Form::date('date_of_birth', null, array('placeholder' => 'Date of Birth','class' => 'form-control')) !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Division:*</strong>
+            <select class="form-control" name="division">
+            <option value="">Select</option>
+                <option value="1">Dhaka</option>                         
+            <select>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>District:*</strong>
+            <select class="form-control" name="district">
+               <option value="">Select</option>
+               <option value="1">Dhaka</option>                
+            <select>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Thana:*</strong>
+            <select class="form-control" name="thana">
+                <option value="">Select</option>              
+                <option value="1">Dhaka</option>               
+            <select>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>NID No:*</strong>
+            {!! Form::text('nid_no', null, array('placeholder' => 'NID No','class' => 'form-control')) !!}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Gender:</strong>
+            <select class="form-control" name="gender">
+                <option value="1">Male</option>              
+                <option value="2">Female</option>              
+            <select>
+        </div>
+    </div>
+</div>
+  </div>
+
+
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+     <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="form-group">
+              <strong>Present Address:</strong>
+              {!! Form::textarea('present_address', null, array('placeholder' => 'Present Address','class' => 'form-control','cols'=>3,'rows'=>3)) !!}
+          </div>
+      </div>
+      <br>  
+      <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="form-group">
+              <strong>Permanent <br> Address:</strong>
+              {!! Form::textarea('permanent_address', null, array('placeholder' => 'Permanent Address','class' => 'form-control','cols'=>3,'rows'=>3)) !!}
+          </div>
+      </div>
+      <br>   
+      <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="form-group">
+              <strong>Billing <br> Address:*</strong>
+              {!! Form::textarea('billing_address', null, array('placeholder' => 'Billing Address','class' => 'form-control','cols'=>3,'rows'=>3)) !!}
+          </div>
+      </div>
+      <br>   
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>SMS <br> Phone:*</strong>
+            {!! Form::text('sms_phone', null, array('placeholder' => 'SMS Phone','class' => 'form-control')) !!}
+        </div>
+    </div>
+ 
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Emergency <br> Phone:</strong>
+            {!! Form::text('emergency_phone', null, array('placeholder' => 'Emergency Phone','class' => 'form-control')) !!}
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Contact One :*</strong>
+            {!! Form::text('contact_one', null, array('placeholder' => 'Contact One','class' => 'form-control')) !!}
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Contact Two:</strong>
+            {!! Form::text('contact_two', null, array('placeholder' => 'Contact Two','class' => 'form-control')) !!}
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Contact Email:*</strong>
+            {!! Form::text('contact_email', null, array('placeholder' => 'Contact Email','class' => 'form-control')) !!}
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Latitude:</strong>
+            {!! Form::text('latitude', null, array('placeholder' => 'Latitude','class' => 'form-control')) !!}
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Longitude:</strong>
+            {!! Form::text('longitude', null, array('placeholder' => 'Longitude','class' => 'form-control')) !!}
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="form-group">
+              <strong>Company <br> Address:</strong>
+              {!! Form::textarea('company_address', null, array('placeholder' => 'Company Address','class' => 'form-control','cols'=>3,'rows'=>3)) !!}
+          </div>
+      </div>
+
+      <br>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="form-group">
+              <strong>Short Note:</strong>
+              {!! Form::textarea('short_note', null, array('placeholder' => 'Short Note','class' => 'form-control','cols'=>3,'rows'=>3)) !!}
+          </div>
+      </div>
+
+
+  </div>
+
+
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Platform <br> Username:*</strong>
+                {!! Form::text('platform_username', null, array('placeholder' => 'Platform Username','class' => 'form-control')) !!}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Platform <br> Password:*</strong>
+                {!! Form::text('platform_password', null, array('placeholder' => 'Platform Password','class' => 'form-control')) !!}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>System <br> Username :*</strong>
+                {!! Form::text('system_username', null, array('placeholder' => 'System Username','class' => 'form-control')) !!}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>System <br> Password:*</strong>
+                {!! Form::text('system_password', null, array('placeholder' => 'System Password','class' => 'form-control')) !!}
+            </div>
+        </div>
+  </div>
+
+
+  <div class="tab-pane fade" id="contacts" role="tabpanel" aria-labelledby="contact-tab">
+
+
+         <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong class="text-break" style="width: 6rem;">Customer  Due <br> Limit :*</strong>
+                {!! Form::text('customer_due_limit', null, array('placeholder' => 'Customer Due Limit','class' => 'form-control')) !!}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong class="text-break" style="width: 6rem;">Collection <br>  Method:*</strong>
+                <select class="form-control" name="collection_method">
+                  <option value="">Select</option>  
+                  <option value="01">01</option>              
+                <option value="02">02</option>              
+                <option value="03">03</option>              
+                <option value="04">04</option>               
+                <select>
+            </div>
+       </div>
+
+       <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong class="text-wrap" style="width: 6rem;">A/C  Opening <br>  Date :*</strong>
+                {!! Form::date('account_opening_date', null, array('placeholder' => 'A/C Opening  Date','class' => 'form-control')) !!}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Reporter:</strong>
+                <select class="form-control" name="reporter">
+                  <option value="">Select</option>  
+                  <option value="01">01</option>              
+                <option value="02">02</option>              
+                <option value="03">03</option>              
+                <option value="04">04</option>              
+                <select>
+            </div>
+       </div>
+
+       <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Follower:</strong>
+                <select class="form-control" name="follower">
+                  <option value="">Select</option>  
+                  <option value="01">01</option>              
+                <option value="02">02</option>              
+                <option value="03">03</option>              
+                <option value="04">04</option>            
+                <select>
+            </div>
+       </div>
+
+       <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="form-group">
+              <strong class="text-wrap" style="width: 6rem;">Account  Note:</strong>
+              {!! Form::textarea('account_note', null, array('placeholder' => 'Account Note','class' => 'form-control','cols'=>3,'rows'=>3)) !!}
+          </div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong class="text-wrap" style="width: 6rem;">Global  Status: *</strong>
+                <select class="form-control" name="global_status">
+                  <option value="">Select</option>  
+                    <option value="1">Inactive</option>              
+                    <option value="2">Active</option>              
+                    <option value="3">Over due</option>              
+                    <option value="4">On Hold</option>              
+                    <option value="5">Stop</option>              
+                <select>
+            </div>
+       </div>
+
+
+  <div class="col-xs-12 col-sm-12 col-md-12">
         <button type="reset" class="btn btn-danger" style="float:left">Reset</button>
         <button type="submit" class="btn btn-primary" style="float:right">Submit</button>
     </div>
+  </div>
+
+
 </div>
+
 {!! Form::close() !!}
         </div>
     </div>

@@ -42,7 +42,7 @@
 
 <div class="card">
     <div class="col-lg-12 card_header">
-        <h5> <i class="flaticon2-shelter"></i> View Vendor Type</h5>
+        <h5> <i class="flaticon2-shelter"></i> View Customer</h5>
     </div>
 </div>
 
@@ -52,14 +52,19 @@
   <div class="card-body">
 
         <div class="pull-right pt-4 pb-4">
-            <a class="btn btn-success" href="{{ route('vendor-type.create') }}"> <i class="fa fa-plus"></i> Create New Type</a>
+            <a class="btn btn-success" href="{{ route('customer.create') }}"> <i class="fa fa-plus"></i> Create New Type</a>
         </div>
  
         <table id="example" class="table table-bordered" style="width:100%">
         <thead>
             <tr>
                 <th>Sl</th>
-                <th>Type</th>
+                <th>Customer ID</th>
+                <th>Customer Name</th>
+                <th>User Type</th>
+                <th>Sms</th>
+                <th>User ID</th>
+                <th>District</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -67,11 +72,16 @@
           @foreach($data as $key=> $item)
             <tr>
                 <td>{{++$key}}</td>
-                <td>{{$item->type}}</td>
+                <td>CST00{{ substr($item->contact_one, 0,  4) }}</td>
+                <td>{{$item->customer_name}}</td>
+                <td>Enduser</td>
+                <td>{{$item->sms_phone}}</td>
+                <td>gm{{$item->sms_phone}}</td>
+                <td>{{optional($item->district)->district_name}}</td>
                 <td>
-                <a class="btn btn-info btn-sm" href="{{ route('vendor-type.show',$item->id) }}">Show</a>
-                    <a class="btn btn-primary btn-sm" href="{{ route('vendor-type.edit',$item->id) }}">Edit</a>
-                    {!! Form::open(['method' => 'DELETE','route' => ['vendor-type.destroy', $item->id],'style'=>'display:inline']) !!}
+                <a class="btn btn-info btn-sm" href="{{ route('customer.show',$item->id) }}">Show</a>
+                    <a class="btn btn-primary btn-sm" href="{{ route('customer.edit',$item->id) }}">Edit</a>
+                    {!! Form::open(['method' => 'DELETE','route' => ['customer.destroy', $item->id],'style'=>'display:inline']) !!}
                         {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
                     {!! Form::close() !!}
                 </td>
