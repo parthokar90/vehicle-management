@@ -90,7 +90,7 @@
     </div>
 
 <br><br>
-    <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-4 mt-4">
     <div class="form-group">
             <select class="form-control" name="thana">
             <option value="">Select Thana</option>
@@ -119,7 +119,7 @@
 
 
 
-   <div class="col-xs-12 col-sm-12 col-md-4">
+   <div class="col-xs-12 col-sm-12 col-md-3">
         <button type="reset" class="btn btn-danger" style="float:left">Reset</button>
         <button type="submit" class="btn btn-primary" style="float:right">Show customer list</button>
     </div>

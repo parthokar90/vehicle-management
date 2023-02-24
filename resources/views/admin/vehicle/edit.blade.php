@@ -121,7 +121,7 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Vehicle Ownership:</strong>
+            <strong>Vehicle <br> Ownership:</strong>
             <select class="form-control" name="owner_ship">
                 @foreach($ownership as $ownerships)
                   <option value="{{$ownerships->id}}" @if($ownerships->id==$data->owner_ship) selected @endif>{{$ownerships->vehicle_ownership}}</option>

@@ -84,9 +84,17 @@
 		<!--end::Page Vendors -->
 
 		<!--begin::Page Scripts(used by this page) -->
-		<script src="{{asset('')}}admin/assets/js/demo1/pages/dashboard.js" type="text/javascript"></script>
+		<script src="{{asset('admin/assets/js/demo1/pages/dashboard.js')}}" type="text/javascript"></script>
+
+		<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+		
 
 		<script>
+		
+               $('.js-example-basic-single').select2();
+
 				$('#example').DataTable( {
 					dom: 'Bfrtip',
 					buttons: [

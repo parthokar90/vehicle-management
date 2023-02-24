@@ -60,6 +60,9 @@
 <!--begin::Global Theme Styles(used by all pages) -->
 <link href="{{asset('admin/assets/css/demo1/style.bundle.css')}}" rel="stylesheet" type="text/css" />
 
+
+
+
 <!--end::Global Theme Styles -->
 
 <!--begin::Layout Skins(used by all pages) -->
