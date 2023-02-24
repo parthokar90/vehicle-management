@@ -79,9 +79,7 @@
 
        <a class="btn btn-primary" href="{{ route('department.edit',$user->id) }}">Edit</a>
  
-        {!! Form::open(['method' => 'DELETE','route' => ['department.destroy', $user->id],'style'=>'display:inline']) !!}
-            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-        {!! Form::close() !!}
+
     
     </td>
   </tr>

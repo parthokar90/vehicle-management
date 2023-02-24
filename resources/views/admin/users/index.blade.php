@@ -53,11 +53,7 @@
        <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
        @endcan
 
-       @can('user-delete')
-        {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-        {!! Form::close() !!}
-      @endcan
+    
     </td>
   </tr>
  @endforeach

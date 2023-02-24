@@ -77,9 +77,7 @@
                 <td>
                 <a class="btn btn-info btn-sm" href="{{ route('vehicle-staff.show',$item->id) }}">Show</a>
                     <a class="btn btn-primary btn-sm" href="{{ route('vehicle-staff.edit',$item->id) }}">Edit</a>
-                    {!! Form::open(['method' => 'DELETE','route' => ['vehicle-staff.destroy', $item->id],'style'=>'display:inline']) !!}
-                        {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-                    {!! Form::close() !!}
+                 
                 </td>
             </tr>    
            @endforeach 

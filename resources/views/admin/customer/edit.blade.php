@@ -55,7 +55,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="col-lg-12 card_header">
-            <h5> <i class="flaticon2-shelter"></i> Add Customer</h5>
+            <h5> <i class="flaticon2-shelter"></i> Edit Customer</h5>
         </div>
     </div>
 </div>
@@ -64,13 +64,13 @@
 <div class="container-fluid">
     <div class="card">
     <div class="col-lg-12 card_header">
-    Add Customer
+    Edit Customer
     </div>
     <div class="row">
   
 </div>
         <div class="card-body">
-{!! Form::open(array('route' => 'customer.store','method'=>'POST')) !!}
+        {!! Form::model($user, ['method' => 'PATCH','route' => ['customer.update', $user->id]]) !!}
 
 
 
@@ -97,10 +97,10 @@
             <strong>Customer Group:*</strong>
             <select class="form-control" name="customer_group">
             <option value="">Select</option>
-                <option value="01">01</option>              
-                <option value="02">02</option>              
-                <option value="03">03</option>              
-                <option value="04">04</option>              
+                <option value="01" @if($user->customer_group==01) selected @endif>01</option>              
+                <option value="02" @if($user->customer_group==02) selected @endif>02</option>              
+                <option value="03" @if($user->customer_group==03) selected @endif>03</option>              
+                <option value="04" @if($user->customer_group==04) selected @endif>04</option>              
             <select>
         </div>
     </div>
@@ -108,10 +108,10 @@
         <div class="form-group">
             <strong>Employee:</strong>
             <select class="form-control" name="employee">
-            <option value="">Select</option>
-              @foreach($users as $userss)
-                 <option value="{{$userss->id}}">{{$userss->name}}</option>    
-               @endforeach              
+            <option value="">Select</option>             
+                @foreach($users as $userss)
+                 <option value="{{$userss->id}}" @if($userss->id==$user->employee) selected @endif>{{$userss->name}}</option>    
+               @endforeach                
             <select>
         </div>
     </div>
@@ -150,9 +150,9 @@
             <strong>Division:*</strong>
             <select class="form-control" name="division">
             <option value="">Select</option>
-               @foreach($division as $divisions)
-                 <option value="{{$divisions->id}}">{{$divisions->division_name}}</option>    
-               @endforeach                           
+              @foreach($division as $divisions)
+                 <option value="{{$divisions->id}}" @if($divisions->id==$user->division) selected @endif>{{$divisions->division_name}}</option>    
+               @endforeach                         
             <select>
         </div>
     </div>
@@ -162,8 +162,8 @@
             <select class="form-control" name="district">
                <option value="">Select</option>
                @foreach($district as $districts)
-                 <option value="{{$districts->id}}">{{$districts->district_name}}</option>    
-               @endforeach            
+                 <option value="{{$districts->id}}" @if($districts->id==$user->district) selected @endif>{{$districts->district_name}}</option>    
+               @endforeach              
             <select>
         </div>
     </div>
@@ -173,8 +173,8 @@
             <select class="form-control" name="thana">
                 <option value="">Select</option>              
                 @foreach($thana as $thanas)
-                  <option value="{{$thanas->id}}">{{$thanas->thana_name}}</option>    
-                @endforeach               
+                  <option value="{{$thanas->id}}" @if($thanas->id==$user->thana) selected @endif>{{$thanas->thana_name}}</option>    
+                @endforeach                  
             <select>
         </div>
     </div>
@@ -188,8 +188,8 @@
         <div class="form-group">
             <strong>Gender:</strong>
             <select class="form-control" name="gender">
-                <option value="1">Male</option>              
-                <option value="2">Female</option>              
+                <option value="1" @if($user->gender==1) selected @endif>Male</option>              
+                <option value="2" @if($user->gender==2) selected @endif>Female</option>              
             <select>
         </div>
     </div>
@@ -333,8 +333,8 @@
                 <select class="form-control" name="collection_method">
                   <option value="">Select</option>  
                   @foreach($collections as $collectionss)
-                    <option value="{{$collectionss->id}}">{{$collectionss->collection}}</option>    
-                  @endforeach               
+                    <option value="{{$collectionss->id}}" @if($collectionss->id==$user->collection_method) selected @endif>{{$collectionss->collection}}</option>    
+                  @endforeach            
                 <select>
             </div>
        </div>
@@ -352,8 +352,8 @@
                 <select class="form-control" name="reporter">
                   <option value="">Select</option>  
                   @foreach($users as $userss)
-                    <option value="{{$userss->id}}">{{$userss->name}}</option>    
-                  @endforeach              
+                 <option value="{{$userss->id}}" @if($userss->id==$user->reporter) selected @endif>{{$userss->name}}</option>    
+               @endforeach           
                 <select>
             </div>
        </div>
@@ -364,7 +364,7 @@
                 <select class="form-control" name="follower">
                   <option value="">Select</option>  
                   @foreach($users as $userss)
-                    <option value="{{$userss->id}}">{{$userss->name}}</option>    
+                    <option value="{{$userss->id}}" @if($userss->id==$user->follower) selected @endif>{{$userss->name}}</option>    
                   @endforeach           
                 <select>
             </div>
@@ -385,11 +385,11 @@
                 <strong class="text-wrap" style="width: 6rem;">Global  Status: *</strong>
                 <select class="form-control" name="global_status">
                   <option value="">Select</option>  
-                    <option value="1">Inactive</option>              
-                    <option value="2">Active</option>              
-                    <option value="3">Over due</option>              
-                    <option value="4">On Hold</option>              
-                    <option value="5">Stop</option>              
+                    <option value="1"  @if($user->global_status==1) selected @endif>Inactive</option>              
+                    <option value="2"  @if($user->global_status==2) selected @endif>Active</option>              
+                    <option value="3"  @if($user->global_status==3) selected @endif>Over due</option>              
+                    <option value="4"  @if($user->global_status==4) selected @endif>On Hold</option>              
+                    <option value="5"  @if($user->global_status==5) selected @endif>Stop</option>              
                 <select>
             </div>
        </div>
