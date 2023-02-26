@@ -1,87 +1,70 @@
 @extends('layouts.app')
 
-
 @section('content')
+
 <section class="content pt-2">
 
-<style>
-.form-control {
-    width: 80%;
-    height: 30px;
-    padding: 5px 12px;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #e2e5ec;
-    border-radius: 4px;
-    float:right;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-.card-body {
-    flex: 1 1 auto;
-    padding: 10px 300px;
-}
-.card_header{
-    border-bottom:1px solid #ccc;
-    padding:15px;
-}
-.kt-header--fixed .kt-wrapper{
-    padding-top:0px!important;
-}
-.card{
-    margin:10px;
-}
-</style>
+<!-- begin:: Content -->
+<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+							<div class="row">
+                            <div class="col-md-3"></div>
+								<div class="col-lg-6">
+
+                                <!-- validation start -->
+                                 @if (count($errors) > 0)
+                                    <div class="alert alert-danger">
+                                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                        <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
+                                  <!-- validation end -->
 
 
-<div class="container-fluid">
-    <div class="card">
-        <div class="col-lg-12 card_header">
-            <h5> </h5>
-        </div>
-    </div>
-</div>
-
-
-<div class="container-fluid">
-@if (count($errors) > 0)
-  <div class="alert alert-danger">
-    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-    <ul>
-       @foreach ($errors->all() as $error)
-         <li>{{ $error }}</li>
-       @endforeach
-    </ul>
-  </div>
-@endif
-    <div class="card">
-    <div class="col-lg-12 card_header">
-    <i class="flaticon2-shelter"></i> Add Type
-    </div>
-    <div class="row">
-  
-</div>
-        <div class="card-body">
--{!! Form::open(array('route' => 'vehicle-type.store','method'=>'POST')) !!}
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Type:</strong>
-            {!! Form::text('vehicle_type', null, array('placeholder' => 'Type','class' => 'form-control')) !!}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <button type="reset" class="btn btn-danger" style="float:left">Reset</button>
-        <button type="submit" class="btn btn-primary" style="float:right">Submit</button>
-    </div>
-</div>
-{!! Form::close() !!}
-        </div>
-    </div>
-</div>
-
+									<!--begin::Portlet-->
+									<div class="kt-portlet">
+										<div class="kt-portlet__head">
+											<div class="kt-portlet__head-label">
+												<h3 class="kt-portlet__head-title">
+                                                <i class="flaticon2-shelter"></i> Add Type
+												</h3>
+											</div>
+										</div>
+										<!--begin::Form-->
+                                        {!! Form::open(array('route' => 'vehicle-type.store','method'=>'POST')) !!}
+											<div class="kt-portlet__body">
+												<div class="kt-section kt-section--first">
+													<div class="kt-section__body">
+														<div class="form-group row">
+															<label class="col-lg-3 col-form-label">Type:</label>
+															<div class="col-lg-6">
+                                                            {!! Form::text('vehicle_type', null, array('placeholder' => 'Type','class' => 'form-control')) !!}
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="kt-portlet__foot">
+												<div class="kt-form__actions">
+													<div class="row">
+														<div class="col-lg-3"></div>
+														<div class="col-lg-6">
+															<button type="submit" class="btn btn-success">Submit</button>
+															<button type="reset" class="btn btn-danger">Reset</button>
+														</div>
+													</div>
+												</div>
+											</div>
+                                            {!! Form::close() !!}
+										<!--end::Form-->
+									</div>
+									<!--end::Portlet-->
+								</div>
+                                <div class="col-md-3"></div>
+							</div>
+						</div>
 </section>
 @endsection
