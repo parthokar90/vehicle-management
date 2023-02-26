@@ -57,7 +57,8 @@
             <a class="btn btn-success" href="{{ route('vehicle-ownership.create') }}"> <i class="fa fa-plus"></i> Create New Ownership</a>
         </div>
  
-        <table id="example" class="table table-bordered" style="width:100%">
+       <div class="table-responsive">
+        <table id="example" class="display" width="100%">
         <thead>
             <tr>
                 <th>Sl</th>
@@ -79,6 +80,7 @@
            @endforeach 
         </tbody>
     </table>
+</div>
 </div>
 </section>
 @endsection

@@ -4,17 +4,7 @@
 
 
 
-@if ($message = Session::get('success'))
-<div class="alert alert-success">
-  <p>{{ $message }}</p>
-</div>
-@endif
 
-@if ($message = Session::get('error'))
-<div class="alert alert-danger">
-  <p>{{ $message }}</p>
-</div>
-@endif
 
 <style>
 
@@ -141,6 +131,17 @@
 
 {!! Form::open(array('route' => 'customer.index','method'=>'GET')) !!}
 <div class="card">
+@if ($message = Session::get('success'))
+<div class="alert alert-success">
+  <p>{{ $message }}</p>
+</div>
+@endif
+
+@if ($message = Session::get('error'))
+<div class="alert alert-danger">
+  <p>{{ $message }}</p>
+</div>
+@endif
     <div class="col-lg-12 card_header">
         <h5> <i class="flaticon2-shelter"></i> Filter customer list</h5>
 
@@ -232,7 +233,8 @@
             <a class="btn btn-success" href="{{ route('customer.create') }}"> <i class="fa fa-plus"></i> Create New Customer</a>
         </div>
  
-        <table id="example" class="table table-bordered" style="width:100%">
+        <div class="table-responsive">
+        <table id="example" class="display" width="100%">
         <thead>
             <tr>
                 <th>Sl</th>
@@ -275,6 +277,7 @@
            @endforeach 
         </tbody>
     </table>
+</div>
 </div>
 </section>
 @endsection

@@ -65,7 +65,8 @@
             <a class="btn btn-success" href="{{ route('department.create') }}"> <i class="fa fa-plus"></i> Create New Department</a>
         </div>
  
-<table id="example" class="table table-bordered">
+        <div class="table-responsive">
+        <table id="example" class="display" width="100%">
 <thead>
  <tr>
    <th>No</th>
@@ -88,6 +89,7 @@
   </tr>
  @endforeach
 </table>
+</div>
 </div>
 </div>
 

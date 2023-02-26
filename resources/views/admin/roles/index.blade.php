@@ -31,7 +31,7 @@
             <a class="btn btn-success" href="{{ route('roles.create') }}"> <i class="fa fa-plus"></i> Create New Role</a>
             @endcan
         </div>
-<table class="table table-bordered">
+<table id="example" class="table table-bordered">
   <tr>
      <th>No</th>
      <th>Role</th>

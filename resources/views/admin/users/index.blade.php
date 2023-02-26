@@ -60,7 +60,8 @@
             <a class="btn btn-success" href="{{ route('users.create') }}"> <i class="fa fa-plus"></i> Create New Employee</a>
         </div>
         @endcan
-<table id="example" class="table table-bordered">
+ <div class="table-responsive">
+        <table id="example" class="display" width="100%">
 <thead>
  <tr>
    <th>No</th>

@@ -85,7 +85,8 @@
 
 
  
-        <table id="example" class="table table-bordered" style="width:100%">
+<div class="table-responsive">
+        <table id="example" class="display" width="100%">
         <thead>
             <tr>
                 <th>Sl</th>
@@ -144,6 +145,7 @@
            @endforeach 
         </tbody>
     </table>
+</div>
 </div>
 
 <script>

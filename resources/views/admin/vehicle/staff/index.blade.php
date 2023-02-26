@@ -56,7 +56,8 @@
         <div class="pull-right pt-4 pb-4">
             <a class="btn btn-success" href="{{ route('vehicle-staff.create') }}"> <i class="fa fa-plus"></i> Create New Staff</a>
         </div>
-        <table id="example" class="table table-bordered" style="width:100%">
+       <div class="table-responsive">
+        <table id="example" class="display" width="100%">
         <thead>
             <tr>
                 <th>Sl</th>
@@ -88,6 +89,7 @@
            @endforeach 
         </tbody>
     </table>
+</div>
 </div>
 </div>
 </section>

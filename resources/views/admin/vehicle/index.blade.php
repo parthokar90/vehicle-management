@@ -42,7 +42,7 @@
 </div>
 
 
-<div class="card" style="width:100;">
+<div class="card">
 <div class="col-lg-12 card_header">
         <h5> <i class="flaticon2-shelter"></i> View Vehicle</h5>
     </div>
@@ -58,7 +58,8 @@
         <div class="pull-right pt-4 pb-4">
             <a class="btn btn-success" href="{{ route('vehicle.create') }}"> <i class="fa fa-plus"></i> Create New Vehicle</a>
         </div>
-        <table id="example" class="table table-bordered" style="width:100%">
+        <div class="table-responsive">
+        <table id="example" class="display" width="100%">
         <thead>
             <tr>
                 <th>Sl</th>
@@ -96,6 +97,7 @@
            @endforeach 
         </tbody>
     </table>
+</div>
 </div>
 </div>
 </section>

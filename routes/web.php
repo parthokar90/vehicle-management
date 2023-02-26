@@ -33,6 +33,14 @@ use App\Http\Controllers\admin\customer\CustomerController;
 */
   
 Auth::routes();
+
+Route::get('/cc', function () {
+    $exitCode = Artisan::call('cache:clear');
+    $exitCode = Artisan::call('route:clear');
+    $exitCode = Artisan::call('view:clear');
+    $exitCode = Artisan::call('config:cache');
+    return '<h1>Clear Cache</h1>';
+});
   
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/', [HomeController::class, 'index'])->name('home');
