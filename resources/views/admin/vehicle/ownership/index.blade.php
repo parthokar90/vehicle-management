@@ -2,14 +2,6 @@
 @section('content')
 <section class="content">
 
-
-
-@if ($message = Session::get('success'))
-<div class="alert alert-success">
-  <p>{{ $message }}</p>
-</div>
-@endif
-
 <style>
 .form-control {
     width: 80%;
@@ -42,12 +34,20 @@
 
 <div class="card">
     <div class="col-lg-12 card_header">
-        <h5> <i class="flaticon2-shelter"></i> View Vehicle Ownership</h5>
+        <h5> </h5>
     </div>
 </div>
 
 <div. class="card">
+<div class="col-lg-12 card_header">
+        <h5> <i class="flaticon2-shelter"></i> View Vehicle Ownership</h5>
+    </div>
 <div class="container-fluid">
+@if ($message = Session::get('success'))
+<div class="alert alert-success">
+  <p>{{ $message }}</p>
+</div>
+@endif
     <div class="col-lg-12 margin-tb">
         
      </div>
@@ -71,7 +71,7 @@
                 <td>{{++$key}}</td>
                 <td>{{$item->vehicle_ownership}}</td>
                 <td>
-                <a class="btn btn-info btn-sm" href="{{ route('vehicle-ownership.show',$item->id) }}">Show</a>
+                <!-- <a class="btn btn-info btn-sm" href="{{ route('vehicle-ownership.show',$item->id) }}">Show</a> -->
                     <a class="btn btn-primary btn-sm" href="{{ route('vehicle-ownership.edit',$item->id) }}">Edit</a>
                   
                 </td>

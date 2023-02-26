@@ -50,7 +50,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="col-lg-12 card_header">
-            <h5> <i class="flaticon2-shelter"></i> Edit Vehicle Group</h5>
+            <h5> </h5>
         </div>
     </div>
 </div>
@@ -58,7 +58,7 @@
 <div class="container-fluid">
     <div class="card">
     <div class="col-lg-12 card_header">
-    Edit Vehicle Group
+    <i class="flaticon2-shelter"></i> Edit Vehicle Group
     </div>
     <div class="card-body">
     <div class="row">

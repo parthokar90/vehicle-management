@@ -54,7 +54,7 @@ span{
 <div class="container-fluid">
     <div class="card">
         <div class="col-lg-12 card_header">
-            <h5> <i class="flaticon2-shelter"></i> Show Customer</h5>
+            <h5> <i class="flaticon2-shelter"></i> Show Vendor</h5>
         </div>
 
 
@@ -105,25 +105,24 @@ span{
 
                         <div class="row"> 
                                 <div class="col-xs-12 col-sm-12 col-md-9">
-                                    Customer Information
+                                    Vendor Information
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-3">
-                                    <a href="{{route('customer.edit',$user->id)}}" class="btn btn-primary" style="float:left"> <i class="fa fa-edit"></i> Edit</a>
-                                    <a href="{{route('customer.index')}}" class="btn btn-danger mr-2" style="float:right"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a>
+                                    <a href="{{route('vendor.edit',$user->id)}}" class="btn btn-primary" style="float:left"> <i class="fa fa-edit"></i> Edit</a>
+                                    <a href="{{route('vendor.index')}}" class="btn btn-danger mr-2" style="float:right"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a>
                                 </div>
                            </div>
 
                        <div class="row">     
                         <div class="col-md-4">
                                 <ul>
-                                <li> <span>Customer Name: </span> {{$user->customer_name}}</li>
+                                <li> <span>Vendor Name: </span> {{$user->vendor_name}}</li>
                                 <li> <span>Company Name: </span> {{$user->company_name}}</li>
-                                <li> <span>Father Name: </span> {{$user->father_name}}</li>
-                                <li> <span>Mother Name: </span> {{$user->mother_name}}</li>
-                                <li> <span>Date of Birth: </span> {{date('d-M-Y',strtotime($user->date_of_birth))}}</li>
+                              
+                             
                                 <li> <span>NID No: </span> {{$user->nid_no}}</li>
-                                <li> <span>Gender: </span> @if($user->gender==1) Male @else Female @endif</li>
+                            
                                 <li> <span>Division: </span> {{optional($user->divisions)->division_name}}</li>
                                 <li> <span>District: </span> {{optional($user->districts)->district_name}}</li>
                                 <li> <span>Thana: </span>{{optional($user->thanas)->thana_name}}</li>
@@ -136,18 +135,14 @@ span{
 
                             <div class="col-md-4">
                                     <ul>
-                                    <li> <span>Invoice Due</span></li>
-                                    <li> <span>Monthly Due</span></li>
-                                    <li> <span>Total Due</span></li>
-                                    <li> <span>Due Limit: </span>{{$user->customer_due_limit}}</li>
+                  
                                     <li> <span>SMS Phone: </span>{{$user->sms_phone}}</li>
                                     <li> <span>Contact One: </span>{{$user->contact_one}}</li>
                                     <li> <span>Contact Two: </span>{{$user->contact_two}}</li>
                                     <li> <span>Email: </span>{{$user->contact_email}}</li>
                                     <li> <span>A/C Opening Date: </span> {{date('d-M-Y',strtotime($user->account_opening_date))}}</li>
                                     <li> <span>Account Note: </span>{{$user->account_note}}</li>
-                                    <li> <span>Platform Username: </span>{{$user->platform_username}}</li>
-                                    <li> <span>System Username: </span>{{$user->system_username}}</li>
+                                  
                                 </ul>
                             </div>
                         </div>

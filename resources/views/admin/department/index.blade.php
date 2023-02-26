@@ -6,11 +6,6 @@
 
 
 
-@if ($message = Session::get('success'))
-<div class="alert alert-success">
-  <p>{{ $message }}</p>
-</div>
-@endif
 
 
 <style>
@@ -45,13 +40,21 @@
 
 <div class="card">
     <div class="col-lg-12 card_header">
-        <h5> <i class="flaticon2-shelter"></i> View Department</h5>
+        <h5> </h5>
     </div>
 </div>
 
 <div class="card">
-
+<div class="col-lg-12 card_header">
+        <h5> <i class="flaticon2-shelter"></i> View Department</h5>
+    </div>
 <div class="container-fluid">
+    
+@if ($message = Session::get('success'))
+<div class="alert alert-success">
+  <p>{{ $message }}</p>
+</div>
+@endif
     <div class="col-lg-12 margin-tb">
      
      </div>
@@ -75,7 +78,7 @@
     <td>{{ ++$i }}</td>
     <td>{{ $user->name }}</td>
     <td>
-       <a class="btn btn-info" href="{{ route('department.show',$user->id) }}">Show</a>
+       <!-- <a class="btn btn-info" href="{{ route('department.show',$user->id) }}">Show</a> -->
 
        <a class="btn btn-primary" href="{{ route('department.edit',$user->id) }}">Edit</a>
  

@@ -1,19 +1,9 @@
-
 @extends('layouts.app')
 
 @section('content')
 <section class="content pt-2">
 
-@if (count($errors) > 0)
-  <div class="alert alert-danger">
-    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-    <ul>
-       @foreach ($errors->all() as $error)
-         <li>{{ $error }}</li>
-       @endforeach
-    </ul>
-  </div>
-@endif
+
 <style>
 .card_header{
     border-bottom:1px solid #ccc;
@@ -85,7 +75,7 @@
 .select2-container--default .select2-selection--single .select2-selection__arrow {
     height: 26px;
     position: absolute;
-    top: 18px !important;
+    top: 25px !important;
     right: 1px;
     width: 20px;
 }
@@ -110,16 +100,26 @@
 <div class="container-fluid">
     <div class="card">
         <div class="col-lg-12 card_header">
-            <h5> <i class="flaticon2-shelter"></i> Edit Customer</h5>
+            <h5> <i class="flaticon2-shelter"></i> Add Vendor</h5>
         </div>
     </div>
 </div>
 
 
 <div class="container-fluid">
+@if (count($errors) > 0)
+  <div class="alert alert-danger">
+    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+    <ul>
+       @foreach ($errors->all() as $error)
+         <li>{{ $error }}</li>
+       @endforeach
+    </ul>
+  </div>
+@endif
     <div class="card">
     <div class="col-lg-12 card_header">
-    Edit Customer
+    <h5> <i class="flaticon2-shelter"></i> Add Vendor</h5>
 </div>
 
 <div class="card-body">
@@ -127,7 +127,7 @@
 <div class="row">
 <div class="col-md-2"></div>
 <div class="col-md-8">
-{!! Form::model($user, ['method' => 'PATCH', 'class'=>'form-horizontal mx-auto','route' => ['customer.update', $user->id]]) !!}
+{!! Form::open(array('route' => 'vendor.store','method'=>'POST','class'=>'form-horizontal mx-auto')) !!}
 <!-- nav start -->
 <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
@@ -136,9 +136,7 @@
     <li class="nav-item">
         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Contact Details</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Platform Info</a>
-    </li>
+
     <li class="nav-item">
         <a class="nav-link" id="a-tab" data-toggle="tab" href="#contacts" role="tab" aria-controls="contact" aria-selected="false">Account Details</a>
     </li>
@@ -154,14 +152,13 @@
     <div class="container">
 
         <div class="form-group row">
-        <label for="inputName" class="col-sm-3 col-form-label"><strong>Customer Group:*</strong></label>
+        <label for="inputName" class="col-sm-3 col-form-label"><strong>Vendor Type:*</strong></label>
         <div class="col-sm-9">
-        <select class="form-control select_two" name="customer_group">
+        <select class="form-control select_two" name="vendor_type">
             <option value="">Select</option>
-             <option value="01" @if($user->customer_group==01) selected @endif>01</option>              
-                <option value="02" @if($user->customer_group==02) selected @endif>02</option>              
-                <option value="03" @if($user->customer_group==03) selected @endif>03</option>              
-                <option value="04" @if($user->customer_group==04) selected @endif>04</option>                
+               @foreach($vendorType as $types)
+                <option value="{{$types->id}}">{{$types->type}}</option>  
+                @endforeach                        
             <select>
         </div>
         </div>
@@ -170,23 +167,9 @@
 
 
         <div class="form-group row">
-        <label for="inputName" class="col-sm-3 col-form-label">  <strong>Employee:</strong></label>
+        <label for="inputName" class="col-sm-3 col-form-label">  <strong>Vendor Name:*</strong></label>
         <div class="col-sm-9">
-        <select class="form-control select_two" name="employee">
-            <option value="">Select</option>
-            @foreach($users as $userss)
-                 <option value="{{$userss->id}}" @if($userss->id==$user->employee) selected @endif>{{$userss->name}}</option>    
-               @endforeach              
-            <select>
-        </div>
-        </div>
-
-
-
-        <div class="form-group row">
-        <label for="inputName" class="col-sm-3 col-form-label">  <strong>Customer Name:*</strong></label>
-        <div class="col-sm-9">
-        {!! Form::text('customer_name', null, array('placeholder' => 'Customer Name','class' => 'form-control')) !!}
+        {!! Form::text('vendor_name', null, array('placeholder' => 'Vendor Name','class' => 'form-control')) !!}
         </div>
         </div>
 
@@ -201,37 +184,13 @@
         </div>
 
 
-
-        <div class="form-group row">
-        <label for="inputName" class="col-sm-3 col-form-label"><strong>Father Name:</strong></label>
-        <div class="col-sm-9">
-        {!! Form::text('father_name', null, array('placeholder' => 'Father Name','class' => 'form-control')) !!}
-        </div>
-        </div>
-
-
-        <div class="form-group row">
-        <label for="inputName" class="col-sm-3 col-form-label"> <strong>Mother Name:</strong></label>
-        <div class="col-sm-9">
-        {!! Form::text('mother_name', null, array('placeholder' => 'Mother Name','class' => 'form-control')) !!}
-        </div>
-        </div>
-
-
-        <div class="form-group row">
-        <label for="inputName" class="col-sm-3 col-form-label"> <strong>Date of Birth:*</strong></label>
-        <div class="col-sm-9">
-        {!! Form::date('date_of_birth', null, array('placeholder' => 'Date of Birth','class' => 'form-control')) !!}
-        </div>
-        </div>
-
         <div class="form-group row">
         <label for="inputName" class="col-sm-3 col-form-label"> <strong>Division:*</strong></label>
         <div class="col-sm-9">
         <select class="form-control select_two" name="division">
             <option value="">Select</option>
-            @foreach($division as $divisions)
-                 <option value="{{$divisions->id}}" @if($divisions->id==$user->division) selected @endif>{{$divisions->division_name}}</option>    
+               @foreach($division as $divisions)
+                 <option value="{{$divisions->id}}">{{$divisions->division_name}}</option>    
                @endforeach                           
             <select>
         </div>
@@ -243,8 +202,8 @@
         <select class="form-control select_two" name="district">
                <option value="">Select</option>
                @foreach($district as $districts)
-                 <option value="{{$districts->id}}" @if($districts->id==$user->district) selected @endif>{{$districts->district_name}}</option>    
-               @endforeach             
+                 <option value="{{$districts->id}}">{{$districts->district_name}}</option>    
+               @endforeach            
             <select>
         </div>
         </div>
@@ -255,7 +214,7 @@
         <select class="form-control select_two" name="thana">
                 <option value="">Select</option>              
                 @foreach($thana as $thanas)
-                  <option value="{{$thanas->id}}" @if($thanas->id==$user->thana) selected @endif>{{$thanas->thana_name}}</option>    
+                  <option value="{{$thanas->id}}">{{$thanas->thana_name}}</option>    
                 @endforeach               
             <select>
         </div>
@@ -266,18 +225,6 @@
         <label for="inputName" class="col-sm-3 col-form-label">   <strong>NID No:*</strong>></label>
         <div class="col-sm-9">
         {!! Form::text('nid_no', null, array('placeholder' => 'NID No','class' => 'form-control')) !!}
-        </div>
-        </div>
-
-
-        <div class="form-group row">
-        <label for="inputName" class="col-sm-3 col-form-label"> <strong>Gender:</strong></label>
-        <div class="col-sm-9">
-        <select class="form-control select_two" name="gender">
-                <option value="">Select</option>              
-                <option value="1" @if($user->gender==1) selected @endif>Male</option>              
-                <option value="2" @if($user->gender==2) selected @endif>Female</option>             
-            <select>          
         </div>
         </div>
 
@@ -396,78 +343,8 @@
 
 
   <!-- tab start -->
-  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-      
-
-  <div class="form-group row">
-        <label for="inputName" class="col-sm-3 col-form-label">  <strong>Platform  Username:*</strong></label>
-        <div class="col-sm-9">
-        {!! Form::text('platform_username', null, array('placeholder' => 'Platform Username','class' => 'form-control')) !!}
-        </div>
-        </div>
-
-
-
-        <div class="form-group row">
-        <label for="inputName" class="col-sm-3 col-form-label">       <strong>Platform  Password:*</strong></label>
-        <div class="col-sm-9">
-       
-        <input type="password" name="platform_password" class="form-control">
-        
-        </div>
-        </div>
-
-        <div class="form-group row">
-        <label for="inputName" class="col-sm-3 col-form-label">  <strong>Short Note:</strong></label>
-        <div class="col-sm-9">
-        {!! Form::textarea('short_note', null, array('placeholder' => 'Short Note','class' => 'form-control','cols'=>3,'rows'=>3)) !!}
-        </div>
-        </div>
-
-
-        <div class="form-group row">
-        <label for="inputName" class="col-sm-3 col-form-label">    <strong>System  Username :*</strong></label>
-        <div class="col-sm-9">
-        {!! Form::text('system_username', null, array('placeholder' => 'System Username','class' => 'form-control')) !!}
-        </div>
-        </div>
-
-
-        <div class="form-group row">
-        <label for="inputName" class="col-sm-3 col-form-label">    <strong>System  Password:*</strong></label>
-        <div class="col-sm-9">
-        <input type="password" name="system_password" class="form-control">
-        </div>
-        </div>
-
-
-
-   </div>
-  <!-- tab end -->
-
-  <!-- tab start -->
   <div class="tab-pane fade" id="contacts" role="tabpanel" aria-labelledby="contact-tab">
 
-
-  <div class="form-group row">
-        <label for="inputName" class="col-sm-3 col-form-label"> <strong>Customer Due Limit :*</strong></label>
-        <div class="col-sm-9">
-        {!! Form::text('customer_due_limit', null, array('placeholder' => 'Customer Due Limit','class' => 'form-control')) !!}
-        </div>
-        </div>
-
-
-        <div class="form-group row">
-        <label for="inputName" class="col-sm-3 col-form-label">    <strong>Collection Method:*</strong></label>
-        <div class="col-sm-9">
-        <select class="form-control" name="collection_method">
-                  <option value="">Select</option>  
-                  @foreach($collections as $collectionss)
-                    <option value="{{$collectionss->id}}" @if($collectionss->id==$user->collection_method) selected @endif>{{$collectionss->collection}}</option>    
-                  @endforeach                 
-                <select>
-        </div>
-        </div>
 
 
         <div class="form-group row">
@@ -478,13 +355,6 @@
         </div>
 
 
-        <div class="form-group row">
-        <label for="inputName" class="col-sm-3 col-form-label">    <strong>System  Password:*</strong></label>
-        <div class="col-sm-9">
-        {!! Form::text('system_password', null, array('placeholder' => 'System Password','class' => 'form-control')) !!}
-        </div>
-        </div>
-
 
         <div class="form-group row">
         <label for="inputName" class="col-sm-3 col-form-label"> <strong>Reporter:</strong></label>
@@ -492,8 +362,8 @@
         <select class="form-control" name="reporter">
                   <option value="">Select</option>  
                   @foreach($users as $userss)
-                 <option value="{{$userss->id}}" @if($userss->id==$user->reporter) selected @endif>{{$userss->name}}</option>    
-               @endforeach               
+                    <option value="{{$userss->id}}">{{$userss->name}}</option>    
+                  @endforeach              
                 <select>
         </div>
         </div>
@@ -506,8 +376,8 @@
         <select class="form-control" name="follower">
                   <option value="">Select</option>  
                   @foreach($users as $userss)
-                    <option value="{{$userss->id}}" @if($userss->id==$user->follower) selected @endif>{{$userss->name}}</option>    
-                  @endforeach             
+                    <option value="{{$userss->id}}">{{$userss->name}}</option>    
+                  @endforeach           
                 <select>
         </div>
         </div>
@@ -524,19 +394,19 @@
         <div class="form-group row">
         <label for="inputName" class="col-sm-3 col-form-label">  <strong>Global  Status: *</strong></label>
         <div class="col-sm-9">
-        <select class="form-control" name="customer_group">
+        <select class="form-control" name="global_status">
             <option value="">Select</option>
-            <option value="1"  @if($user->global_status==1) selected @endif>Inactive</option>              
-                    <option value="2"  @if($user->global_status==2) selected @endif>Active</option>              
-                    <option value="3"  @if($user->global_status==3) selected @endif>Over due</option>              
-                    <option value="4"  @if($user->global_status==4) selected @endif>On Hold</option>              
-                    <option value="5"  @if($user->global_status==5) selected @endif>Stop</option>               
+            <option value="1">Inactive</option>              
+                    <option value="2">Active</option>              
+                    <option value="3">Over due</option>              
+                    <option value="4">On Hold</option>              
+                    <option value="5">Stop</option>               
             <select>
         </div>
 
 
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <button type="reset" class="btn btn-danger mt-3" style="float:left">Reset</button>
+    <button type="reset" class="btn btn-danger mt-3" style="float:left">Reset</button>
         <button type="submit" class="btn btn-primary mt-3" style="float:right">Submit</button>
     </div>
 

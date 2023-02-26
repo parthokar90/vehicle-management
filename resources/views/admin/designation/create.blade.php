@@ -1,106 +1,147 @@
 @extends('layouts.app')
 
-
 @section('content')
-<section class="content pt-2">
-
-@if (count($errors) > 0)
-  <div class="alert alert-danger">
-    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-    <ul>
-       @foreach ($errors->all() as $error)
-         <li>{{ $error }}</li>
-       @endforeach
-    </ul>
-  </div>
-@endif
 
 <style>
-.form-control {
-    width: 80%;
-    height: 30px;
-    padding: 5px 12px;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #e2e5ec;
-    border-radius: 4px;
-    float:right;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 28px;
+    padding: 7px 12px !important;
 }
-.card-body {
-    flex: 1 1 auto;
-    padding: 10px 300px;
+
+
+/* Select2 Bootstrap 4 Theme */
+.select2-container--bootstrap {
+  box-sizing: border-box !important;
+  display: inline-block !important;
+  margin: 0 !important;
+  position: relative !important;
+  vertical-align: middle !important;
 }
-.card_header{
-    border-bottom:1px solid #ccc;
-    padding:15px;
+.select2-container--bootstrap .select2-selection--single {
+  background-color: #fff !important;
+  border: 1px solid #ced4da !important;
+  border-radius: 0.25rem!important;
+  height: calc(2.25rem + 2px) !important;
+  padding: 0.375rem 0.75rem !important;
 }
-.kt-header--fixed .kt-wrapper{
-    padding-top:0px!important;
+.select2-container--bootstrap .select2-selection--single:focus {
+  border-color: #80bdff !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
 }
-.card{
-    margin:10px;
+.select2-container--bootstrap .select2-selection--single .select2-selection__rendered {
+  color: #495057 !important;
+  line-height: 1.5 !important;
+}
+.select2-container--bootstrap .select2-selection--single .select2-selection__arrow {
+  height: calc(2.25rem + 2px) !important;
+  position: absolute !important;
+  top: 0.375rem !important;
+  right: 0.75rem !important;
+  width: 1.75rem !important;
+}
+.select2-container--bootstrap .select2-selection--single .select2-selection__arrow b {
+  border-color: #555 transparent transparent transparent !important;
+  border-style: solid !important;
+  border-width: 0.3rem 0.3rem 0 0.3rem !important;
+  height: 0 !important;
+  left: 50% !important;
+  margin-left: -0.15rem !important;
+  margin-top: -0.15rem !important;
+  position: absolute !important;
+  top: 50% !important;
+  width: 0 !important;
+}
+
+.select2-container .select2-selection--single {
+  margin-top:10px !important;  
+  height: 40px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 26px;
+    position: absolute;
+    top: 30px !important;
+    right: 1px;
+    width: 20px;
 }
 </style>
 
+<section class="content pt-2">
 
-<div class="container-fluid">
-    <div class="card">
-        <div class="col-lg-12 card_header">
-            <h5> <i class="flaticon2-shelter"></i> Create New Designation</h5>
-        </div>
-    </div>
-</div>
+<!-- begin:: Content -->
+<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+							<div class="row">
+                            <div class="col-md-3"></div>
+								<div class="col-lg-6">
 
-
-<div class="container-fluid">
-    <div class="card">
-    <div class="col-lg-12 card_header">
-    Create New Designation
-    </div>
-    <div class="row">
-  
-</div>
-        <div class="card-body">
--{!! Form::open(array('route' => 'designation.store','method'=>'POST')) !!}
-<div class="row">
-
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Department:</strong>
-            <select name="department_id" class="form-control">
-                <option value="">Select Department</option>
-                @foreach($department as $item)
-                  <option value="{{$item->id}}">{{$item->name}}</option>
-                @endforeach   
-            </select>
-        </div>
-    </div>
+                                <!-- validation start -->
+                                 @if (count($errors) > 0)
+                                    <div class="alert alert-danger">
+                                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                        <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
+                                  <!-- validation end -->
 
 
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Designation:</strong>
-            {!! Form::text('designation_name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
-        </div>
-    </div>
-
-
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <button type="reset" class="btn btn-danger" style="float:left">Reset</button>
-        <button type="submit" class="btn btn-primary" style="float:right">Submit</button>
-    </div>
-</div>
-{!! Form::close() !!}
-        </div>
-    </div>
-</div>
-
-
-
+									<!--begin::Portlet-->
+									<div class="kt-portlet">
+										<div class="kt-portlet__head">
+											<div class="kt-portlet__head-label">
+												<h3 class="kt-portlet__head-title">
+                                                <i class="flaticon2-shelter"></i> Create New Designation
+												</h3>
+											</div>
+										</div>
+										<!--begin::Form-->
+                                        {!! Form::open(array('route' => 'designation.store','method'=>'POST','class'=>'kt-form')) !!}
+											<div class="kt-portlet__body">
+												<div class="kt-section kt-section--first">
+													<div class="kt-section__body">
+														<div class="form-group row">
+															<label class="col-lg-3 col-form-label">Department:</label>
+															<div class="col-lg-6">
+                                                            <select name="department_id" class="form-control select_two">
+                                                                <option value="">Select Department</option>
+                                                                    @foreach($department as $item)
+                                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                                    @endforeach   
+                                                                </select>
+															</div>
+														</div>
+                                                        <div class="form-group row">
+															<label class="col-lg-3 col-form-label">Designation:</label>
+															<div class="col-lg-6">
+                                                            {!! Form::text('designation_name', null, array('placeholder' => 'Designation','class' => 'form-control')) !!}
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="kt-portlet__foot">
+												<div class="kt-form__actions">
+													<div class="row">
+														<div class="col-lg-3"></div>
+														<div class="col-lg-6">
+															<button type="submit" class="btn btn-success">Submit</button>
+															<button type="reset" class="btn btn-danger">Reset</button>
+														</div>
+													</div>
+												</div>
+											</div>
+                                            {!! Form::close() !!}
+										<!--end::Form-->
+									</div>
+									<!--end::Portlet-->
+								</div>
+                                <div class="col-md-3"></div>
+							</div>
+						</div>
 </section>
 @endsection

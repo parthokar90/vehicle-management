@@ -4,8 +4,21 @@
 	  @include('layouts.common.header')
 	</head>
 
+	@include('layouts.common.top_header')
+
 	<!-- begin::Body -->
 	<body class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
+
+	<div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
+			<div class="kt-header-mobile__logo">
+				<a href="demo1/index.html">
+					<img alt="Logo" src="{{asset('admin/assets/media/logos/logo-light.png')}}" />
+				</a>
+			</div>
+			<div class="kt-header-mobile__toolbar">
+				<button class="kt-header-mobile__toggler kt-header-mobile__toggler--left" id="kt_aside_mobile_toggler"><span></span></button>
+			</div>
+		</div>
 
 		<!-- end:: Header Mobile -->
 		<div class="kt-grid kt-grid--hor kt-grid--root">

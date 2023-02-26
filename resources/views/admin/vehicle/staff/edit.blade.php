@@ -4,16 +4,7 @@
 @section('content')
 <section class="content pt-2">
 
-@if (count($errors) > 0)
-  <div class="alert alert-danger">
-    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-    <ul>
-       @foreach ($errors->all() as $error)
-         <li>{{ $error }}</li>
-       @endforeach
-    </ul>
-  </div>
-@endif
+
 
 <style>
 .form-control {
@@ -51,16 +42,26 @@
 <div class="container-fluid">
     <div class="card">
         <div class="col-lg-12 card_header">
-            <h5> <i class="flaticon2-shelter"></i> Edit Staff</h5>
+            <h5> </h5>
         </div>
     </div>
 </div>
 
 <div class="container-fluid">
+@if (count($errors) > 0)
+  <div class="alert alert-danger">
+    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+    <ul>
+       @foreach ($errors->all() as $error)
+         <li>{{ $error }}</li>
+       @endforeach
+    </ul>
+  </div>
+@endif
     <div class="card">
     <div class="col-lg-12 card_header">
-    Edit  Staff
-    </div>
+            <h5> <i class="flaticon2-shelter"></i> Edit Staff</h5>
+        </div>
     <div class="card-body">
     <div class="row">
   
@@ -140,14 +141,14 @@
 
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Present Address:</strong>
+            <strong>Present <br> Address:</strong>
             {!! Form::textarea('present_address', null, array('placeholder' => 'Present Address','class' => 'form-control','cols'=>2,'rows'=>2)) !!}
         </div>
     </div>
 
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Permanent Address:</strong>
+            <strong>Permanent <br> Address:</strong>
             {!! Form::textarea('permanent_address', null, array('placeholder' => 'Permanent Address','class' => 'form-control','cols'=>2,'rows'=>2)) !!}
         </div>
     </div>
@@ -172,7 +173,7 @@
 
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Previous Organisation:</strong>
+            <strong>Previous <br> Organisation:</strong>
             {!! Form::text('previous_organisation', null, array('placeholder' => 'Previous Organisation','class' => 'form-control')) !!}
         </div>
     </div>
@@ -191,8 +192,8 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Profile Photo:</strong><br>
-            <img class="img-fluid" width="80px" height="80px" src="{{asset('admin/vehicle/staff/'.$user->profile_photo)}}">
-            {!! Form::file('profile_photo', null, array('placeholder' => 'Work Experience','class' => 'form-control')) !!}
+            <img class="img-fluid" width="30px" height="30px" src="{{asset('admin/vehicle/staff/'.$user->profile_photo)}}">
+            {!! Form::file('profile_photo', null, array('placeholder' => 'Work Experience','class' => 'form-control ml-3')) !!}
         </div>
     </div>
 

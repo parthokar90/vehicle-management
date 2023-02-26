@@ -6,11 +6,6 @@
 
 
 
-@if ($message = Session::get('success'))
-<div class="alert alert-success">
-  <p>{{ $message }}</p>
-</div>
-@endif
 
 <style>
 .form-control {
@@ -44,12 +39,21 @@
 
 <div class="card">
     <div class="col-lg-12 card_header">
-        <h5> <i class="flaticon2-shelter"></i> View Designation</h5>
+        <h5> </h5>
     </div>
 </div>
 
-<div. class="card">
+<div class="card">
+<div class="col-lg-12 card_header">
+        <h5> <i class="flaticon2-shelter"></i> View Designation</h5>
+    </div>
 <div class="container-fluid">
+  
+@if ($message = Session::get('success'))
+<div class="alert alert-success">
+  <p>{{ $message }}</p>
+</div>
+@endif
   <div class="card-body">
 
         <div class="pull-right pt-4 pb-4">
@@ -71,7 +75,7 @@
     <td>{{ $user->department->name }}</td>
     <td>{{ $user->designation_name }}</td>
     <td>
-       <a class="btn btn-info" href="{{ route('designation.show',$user->id) }}">Show</a>
+       <!-- <a class="btn btn-info" href="{{ route('designation.show',$user->id) }}">Show</a> -->
 
        <a class="btn btn-primary" href="{{ route('designation.edit',$user->id) }}">Edit</a>
 

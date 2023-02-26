@@ -17,6 +17,7 @@ use App\Http\Controllers\admin\vehicle\ownership\VehicleOwnershipController;
 use App\Http\Controllers\admin\vehicle\staff\VehicleStaffController;
 use App\Http\Controllers\admin\vehicle\staff\StaffTypeController;
 use App\Http\Controllers\admin\vendor\VendorTypeController;
+use App\Http\Controllers\admin\vendor\VendorController;
 use App\Http\Controllers\admin\customer\CustomerController;
 
   
@@ -42,6 +43,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('permit', PermissionController::class);
     Route::resource('assign-permit', AssignPermissionController::class);
     Route::resource('vehicle', VehicleController::class);
+    Route::get('single/vehicle', [VehicleController::class,'singleVehicle'])->name('vehicle.single');
     Route::resource('vehicle-group', VehiclegroupController::class);
     Route::resource('vehicle-type', VehicleTypeController::class);
     Route::resource('vehicle-status', VehicleStatusController::class);
@@ -49,5 +51,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('vehicle-staff', VehicleStaffController::class);
     Route::resource('staff-type', StaffTypeController::class);
     Route::resource('vendor-type', VendorTypeController::class);
+    Route::resource('vendor', VendorController::class);
     Route::resource('customer', CustomerController::class);
 });

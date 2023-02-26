@@ -1,173 +1,242 @@
 @extends('layouts.app')
 
-
 @section('content')
-<section class="content pt-2">
-
-@if (count($errors) > 0)
-  <div class="alert alert-danger">
-    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-    <ul>
-       @foreach ($errors->all() as $error)
-         <li>{{ $error }}</li>
-       @endforeach
-    </ul>
-  </div>
-@endif
-
 
 <style>
-.form-control {
-    width: 80%;
-    height: 30px;
-    padding: 5px 12px;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #e2e5ec;
-    border-radius: 4px;
-    float:right;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 28px;
+    padding: 7px 12px !important;
 }
-.card-body {
-    flex: 1 1 auto;
-    padding: 10px 300px;
+
+
+/* Select2 Bootstrap 4 Theme */
+.select2-container--bootstrap {
+  box-sizing: border-box !important;
+  display: inline-block !important;
+  margin: 0 !important;
+  position: relative !important;
+  vertical-align: middle !important;
 }
-.card_header{
-    border-bottom:1px solid #ccc;
-    padding:15px;
+.select2-container--bootstrap .select2-selection--single {
+  background-color: #fff !important;
+  border: 1px solid #ced4da !important;
+  border-radius: 0.25rem!important;
+  height: calc(2.25rem + 2px) !important;
+  padding: 0.375rem 0.75rem !important;
 }
-.kt-header--fixed .kt-wrapper{
-    padding-top:0px!important;
+.select2-container--bootstrap .select2-selection--single:focus {
+  border-color: #80bdff !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
 }
-.card{
-    margin:10px;
+.select2-container--bootstrap .select2-selection--single .select2-selection__rendered {
+  color: #495057 !important;
+  line-height: 1.5 !important;
+}
+.select2-container--bootstrap .select2-selection--single .select2-selection__arrow {
+  height: calc(2.25rem + 2px) !important;
+  position: absolute !important;
+  top: 0.375rem !important;
+  right: 0.75rem !important;
+  width: 1.75rem !important;
+}
+.select2-container--bootstrap .select2-selection--single .select2-selection__arrow b {
+  border-color: #555 transparent transparent transparent !important;
+  border-style: solid !important;
+  border-width: 0.3rem 0.3rem 0 0.3rem !important;
+  height: 0 !important;
+  left: 50% !important;
+  margin-left: -0.15rem !important;
+  margin-top: -0.15rem !important;
+  position: absolute !important;
+  top: 50% !important;
+  width: 0 !important;
+}
+
+.select2-container .select2-selection--single {
+  margin-top:10px !important;  
+  height: 40px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 26px;
+    position: absolute;
+    top: 30px !important;
+    right: 1px;
+    width: 20px;
 }
 </style>
 
+<section class="content pt-2">
 
-<div class="container-fluid">
-    <div class="card">
-        <div class="col-lg-12 card_header">
-            <h5> <i class="flaticon2-shelter"></i> Add Vehicle</h5>
-        </div>
-    </div>
-</div>
+<!-- begin:: Content -->
+<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+							<div class="row">
+                            <div class="col-md-2"></div>
+								<div class="col-lg-8">
+
+                                <!-- validation start -->
+                                 @if (count($errors) > 0)
+                                    <div class="alert alert-danger">
+                                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                        <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
+                                  <!-- validation end -->
+
+
+									<!--begin::Portlet-->
+									<div class="kt-portlet">
+										<div class="kt-portlet__head">
+											<div class="kt-portlet__head-label">
+												<h3 class="kt-portlet__head-title">
+                                                <i class="flaticon2-shelter"></i> Add Vehicle
+												</h3>
+											</div>
+										</div>
+										<!--begin::Form-->
+                                        {!! Form::open(['method' => 'POST', 'enctype'=>'multipart/form-data', 'class'=>'kt-form', 'route' => ['vehicle.store']]) !!}
+											<div class="kt-portlet__body">
+												<div class="kt-section kt-section--first">
+													<div class="kt-section__body">
+
+                                                       <div class="form-group row">
+															<label class="col-lg-3 col-form-label">Vehicle Name:</label>
+															<div class="col-lg-6">
+                                                            {!! Form::text('name', null, array('placeholder' => 'Vehicle Name','class' => 'form-control')) !!}
+															</div>
+														</div>
+
+                                                        <div class="form-group row">
+															<label class="col-lg-3 col-form-label">Vehicle Plate No:</label>
+															<div class="col-lg-6">
+                                                            {!! Form::text('plate_no', null, array('placeholder' => 'Vehicle Plate No','class' => 'form-control')) !!}
+															</div>
+														</div>
+
+														<div class="form-group row">
+															<label class="col-lg-3 col-form-label">Vehicle Type:</label>
+															<div class="col-lg-6">
+                                                            <select class="form-control select_two" name="type">
+                                                                @foreach($type as $types)
+                                                                    <option value="{{$types->id}}">{{$types->vehicle_type}}</option>
+                                                                    @endforeach 
+                                                             </select>
+															</div>
+														</div>
 
 
 
-<div class="container-fluid">
-    <div class="card">
-    
-    <div class="col-lg-12 card_header">
-        Add Vehicle
-    </div>
-        <div class="card-body">
--{!! Form::open(array('route' => 'vehicle.store','method'=>'POST','enctype'=>'multipart/form-data')) !!}
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Vehicle Name:</strong>
-            {!! Form::text('name', null, array('placeholder' => 'Vehicle Name','class' => 'form-control')) !!}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Vehicle Plate No:</strong>
-            {!! Form::text('plate_no', null, array('placeholder' => 'Vehicle Plate No','class' => 'form-control')) !!}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Vehicle Type:</strong>
-            <select class="form-control" name="type">
-                @foreach($type as $types)
-                  <option value="{{$types->id}}">{{$types->vehicle_type}}</option>
-                @endforeach 
-            </select>
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Model Name:</strong>
-            {!! Form::text('model', null, array('placeholder' => 'Model Name','class' => 'form-control')) !!}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Vehicle Color:</strong>
-            {!! Form::text('color', null, array('placeholder' => 'Vehicle Color','class' => 'form-control')) !!}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Vehicle Year:</strong>
-            {!! Form::text('year', null, array('placeholder' => 'Vehicle Year','class' => 'form-control')) !!}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Vehicle Engine No:</strong>
-            {!! Form::text('engine_no', null, array('placeholder' => 'Vehicle Engine No','class' => 'form-control')) !!}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Avarage Mileage:</strong>
-            {!! Form::text('milage', null, array('placeholder' => 'Avarage Mileage','class' => 'form-control')) !!}
-          
-            
-       
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Vehicle <br> Ownership:</strong>
-            <select class="form-control" name="owner_ship">
-                @foreach($ownership as $ownerships)
-                  <option value="{{$ownerships->id}}">{{$ownerships->vehicle_ownership}}</option>
-                @endforeach 
-            </select>
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Vehicle Group:</strong>
-            <select class="form-control" name="group_id">
-                @foreach($group as $groups) 
-                    <option value="{{$groups->id}}">{{$groups->group}}</option>
-                @endforeach
-            </select>
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Photo:</strong>
-            <input type="file" name="photo" class="form-control">
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Vehicle Status:</strong>
-            <select class="form-control" name="status">
-                @foreach($status as $statuss)
-                  <option value="{{$statuss->id}}">{{$statuss->vehicle_status}}</option>
-                @endforeach 
-            </select>
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <button type="reset" class="btn btn-danger" style="float:left">Reset</button>
-        <button type="submit" class="btn btn-primary" style="float:right">Submit</button>
-    </div>
-</div>
-{!! Form::close() !!}
-        </div>
-    </div>
-</div>
+                                                        <div class="form-group row">
+															<label class="col-lg-3 col-form-label">Model Name:</label>
+															<div class="col-lg-6">
+                                                            {!! Form::text('model', null, array('placeholder' => 'Model Name','class' => 'form-control')) !!}
+															</div>
+														</div>
 
+
+                                                        
+                                                        <div class="form-group row">
+															<label class="col-lg-3 col-form-label">Vehicle Color:</label>
+															<div class="col-lg-6">
+                                                            {!! Form::text('model', null, array('placeholder' => 'Model Name','class' => 'form-control')) !!}
+															</div>
+														</div>
+
+
+                                                        
+                                                        <div class="form-group row">
+															<label class="col-lg-3 col-form-label">Vehicle Year:</label>
+															<div class="col-lg-6">
+                                                            {!! Form::text('year', null, array('placeholder' => 'Vehicle Year','class' => 'form-control')) !!}
+															</div>
+														</div>
+
+                                                        
+                                                        <div class="form-group row">
+															<label class="col-lg-3 col-form-label">Vehicle Engine No:</label>
+															<div class="col-lg-6">
+                                                            {!! Form::text('engine_no', null, array('placeholder' => 'Vehicle Engine No','class' => 'form-control')) !!}
+															</div>
+														</div>
+
+                                                        
+                                                        <div class="form-group row">
+															<label class="col-lg-3 col-form-label">Avarage Mileage:</label>
+															<div class="col-lg-6">
+                                                            {!! Form::text('milage', null, array('placeholder' => 'Avarage Mileage','class' => 'form-control')) !!}
+															</div>
+														</div>
+
+
+                                                        <div class="form-group row">
+															<label class="col-lg-3 col-form-label">Vehicle  Ownership:</label>
+															<div class="col-lg-6">
+                                                            <select class="form-control select_two" name="owner_ship">
+                                                                @foreach($ownership as $ownerships)
+                                                                <option value="{{$ownerships->id}}">{{$ownerships->vehicle_ownership}}</option>
+                                                                @endforeach 
+                                                            </select>
+															</div>
+														</div>
+
+
+                                                        <div class="form-group row">
+															<label class="col-lg-3 col-form-label">Vehicle Group:</label>
+															<div class="col-lg-6">
+                                                            <select class="form-control select_two" name="group_id">
+                                                                    @foreach($group as $groups) 
+                                                                        <option value="{{$groups->id}}">{{$groups->group}}</option>
+                                                                    @endforeach
+                                                                </select>
+															</div>
+														</div>
+
+
+                                                        <div class="form-group row">
+															<label class="col-lg-3 col-form-label">Photo:</label>
+															<div class="col-lg-6">
+                                                            <input type="file" name="photo" class="form-control">
+															</div>
+														</div>
+
+
+                                                        <div class="form-group row">
+															<label class="col-lg-3 col-form-label">Vehicle Status:</label>
+															<div class="col-lg-6">
+                                                            <select class="form-control" name="status">
+                                                                @foreach($status as $statuss)
+                                                                <option value="{{$statuss->id}}">{{$statuss->vehicle_status}}</option>
+                                                                @endforeach 
+                                                            </select>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="kt-portlet__foot">
+												<div class="kt-form__actions">
+													<div class="row">
+														<div class="col-lg-3"></div>
+														<div class="col-lg-6">
+															<button type="submit" class="btn btn-success">Submit</button>
+															<button type="reset" class="btn btn-danger">Reset</button>
+														</div>
+													</div>
+												</div>
+											</div>
+                                            {!! Form::close() !!}
+										<!--end::Form-->
+									</div>
+									<!--end::Portlet-->
+								</div>
+                                <div class="col-md-2"></div>
+							</div>
+						</div>
 </section>
 @endsection

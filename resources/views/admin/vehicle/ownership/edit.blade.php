@@ -4,16 +4,7 @@
 @section('content')
 <section class="content pt-2">
 
-@if (count($errors) > 0)
-  <div class="alert alert-danger">
-    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-    <ul>
-       @foreach ($errors->all() as $error)
-         <li>{{ $error }}</li>
-       @endforeach
-    </ul>
-  </div>
-@endif
+
 
 <style>
 .form-control {
@@ -51,17 +42,27 @@
 <div class="container-fluid">
     <div class="card">
         <div class="col-lg-12 card_header">
-            <h5> <i class="flaticon2-shelter"></i> Edit Vehicle Ownership</h5>
+            <h5> </h5>
         </div>
     </div>
 </div>
 
 
 <div class="container-fluid">
+@if (count($errors) > 0)
+  <div class="alert alert-danger">
+    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+    <ul>
+       @foreach ($errors->all() as $error)
+         <li>{{ $error }}</li>
+       @endforeach
+    </ul>
+  </div>
+@endif
     <div class="card">
     <div class="col-lg-12 card_header">
-    Edit Vehicle Ownership
-    </div>
+            <h5> <i class="flaticon2-shelter"></i> Edit Vehicle Ownership</h5>
+        </div>
     <div class="card-body">
     <div class="row">
    

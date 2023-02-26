@@ -91,7 +91,8 @@ class VehicleController extends Controller
     public function show($id)
     {
         $data = Vehicle::find($id);
-        return view('admin.vehicle.show',compact('data'));
+        $vehicle=Vehicle::orderBy('id','DESC')->get();
+        return view('admin.vehicle.show',compact('data','vehicle'));
     }
     
     /**
@@ -108,6 +109,19 @@ class VehicleController extends Controller
         $status = VehicleStatus::all();
         $ownership = VehicleOwnership::all();
         return view('admin.vehicle.edit',compact('data','group','type','status','ownership'));
+    }
+
+       /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function singleVehicle(Request $request){
+        $all=Vehicle::all();
+        $data = Vehicle::find($request->vehicle);
+        return view('admin.vehicle.singleVehicle',compact('all','data'));
     }
     
     /**

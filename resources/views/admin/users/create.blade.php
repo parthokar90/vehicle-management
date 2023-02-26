@@ -4,16 +4,7 @@
 @section('content')
 <section class="content pt-2">
 
-@if (count($errors) > 0)
-  <div class="alert alert-danger">
-    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-    <ul>
-       @foreach ($errors->all() as $error)
-         <li>{{ $error }}</li>
-       @endforeach
-    </ul>
-  </div>
-@endif
+
 
 <style>
 .form-control {
@@ -51,17 +42,27 @@
 <div class="container-fluid">
     <div class="card">
         <div class="col-lg-12 card_header">
-            <h5> <i class="flaticon2-shelter"></i> Create New Employee</h5>
+            <h5> </h5>
         </div>
     </div>
 </div>
 
 
 <div class="container-fluid">
+@if (count($errors) > 0)
+  <div class="alert alert-danger">
+    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+    <ul>
+       @foreach ($errors->all() as $error)
+         <li>{{ $error }}</li>
+       @endforeach
+    </ul>
+  </div>
+@endif
     <div class="card">
     <div class="col-lg-12 card_header">
-    Create New Employee
-    </div>
+            <h5> <i class="flaticon2-shelter"></i> Create New Employee</h5>
+        </div>
     <div class="row">
 </div>
         <div class="card-body">
@@ -82,7 +83,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Designation:</strong>
-            <select name="designation_id" class="form-control">
+            <select name="designation_id select_two" class="form-control">
                 <option value="">Select Designation</option>
                 @foreach($designation as $item)
                   <option value="{{$item->id}}">{{$item->designation_name}}</option>

@@ -51,7 +51,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="col-lg-12 card_header">
-            <h5> <i class="flaticon2-shelter"></i> Create New Group</h5>
+            <h5> </h5>
         </div>
     </div>
 </div>
@@ -60,13 +60,13 @@
 <div class="container-fluid">
     <div class="card">
     <div class="col-lg-12 card_header">
-    Create New Group
+    <i class="flaticon2-shelter"></i> Create New Group
     </div>
     <div class="row">
 
 </div>
         <div class="card-body">
--{!! Form::open(array('route' => 'vehicle-group.store','method'=>'POST')) !!}
+{!! Form::open(array('route' => 'vehicle-group.store','method'=>'POST')) !!}
 <div class="row">
 <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">

@@ -35,4 +35,5 @@ class Vehicle extends Model
     public function assignedStaff(){
         return $this->hasMany(VehicleStaff::class,'assigned_vehicle');
     }
+
 }

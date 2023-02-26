@@ -14,7 +14,7 @@
 									<i class="kt-menu__section-icon flaticon-more-v2"></i>
 								</li>
 
-								<li class="kt-menu__item  kt-menu__item--submenu @if($url==='vehicle.index' || $url==='vehicle.create' || $url==='vehicle.edit' || $url==='vehicle.show' || $url==='vehicle-group.index' || $url==='vehicle-group.create' || $url==='vehicle-group.edit' || $url==='vehicle-type.index' || $url==='vehicle-type.create' || $url==='vehicle-type.edit' || $url==='vehicle-status.index' || $url==='vehicle-status.create' || $url==='vehicle-status.edit' || $url==='vehicle-ownership.index' || $url==='vehicle-ownership.create' || $url==='vehicle-ownership.edit') kt-menu__item--open @endif" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+								<li class="kt-menu__item  kt-menu__item--submenu @if($url==='vehicle.index' || $url==='vehicle.single' || $url==='vehicle.create' || $url==='vehicle.edit' || $url==='vehicle.show' || $url==='vehicle-group.index' || $url==='vehicle-group.create' || $url==='vehicle-group.edit' || $url==='vehicle-type.index' || $url==='vehicle-type.create' || $url==='vehicle-type.edit' || $url==='vehicle-status.index' || $url==='vehicle-status.create' || $url==='vehicle-status.edit' || $url==='vehicle-ownership.index' || $url==='vehicle-ownership.create' || $url==='vehicle-ownership.edit') kt-menu__item--open @endif" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
 												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 													<rect id="bound" x="0" y="0" width="24" height="24" />
 													<path d="M4,9.67471899 L10.880262,13.6470401 C10.9543486,13.689814 11.0320333,13.7207107 11.1111111,13.740321 L11.1111111,21.4444444 L4.49070127,17.526473 C4.18655139,17.3464765 4,17.0193034 4,16.6658832 L4,9.67471899 Z M20,9.56911707 L20,16.6658832 C20,17.0193034 19.8134486,17.3464765 19.5092987,17.526473 L12.8888889,21.4444444 L12.8888889,13.6728275 C12.9050191,13.6647696 12.9210067,13.6561758 12.9368301,13.6470401 L20,9.56911707 Z" id="Combined-Shape" fill="#000000" />
@@ -23,6 +23,7 @@
 											</svg></span><span class="kt-menu__link-text">Manage Vehicle</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
 									<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
 										<ul class="kt-menu__subnav">
+											<li class="kt-menu__item  @if($url==='vehicle.single') kt-menu__item--active @endif  " aria-haspopup="true"><a href="{{route('vehicle.single')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Single Vehicle</span></a></li>
 											<li class="kt-menu__item  @if($url==='vehicle.index') kt-menu__item--active @endif  " aria-haspopup="true"><a href="{{route('vehicle.index')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">List</span></a></li>
 											<li class="kt-menu__item @if($url==='vehicle.create') kt-menu__item--active @endif " aria-haspopup="true"><a href="{{route('vehicle.create')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Create</span></a></li>
 											<li class="kt-menu__item @if($url==='vehicle-group.index') kt-menu__item--active @endif " aria-haspopup="true"><a href="{{route('vehicle-group.index')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Vehicle Group</span></a></li>
@@ -50,7 +51,7 @@
 									</div>
 								</li>
 
-								<li class="kt-menu__item  kt-menu__item--submenu @if($url==='vendor-type.index') kt-menu__item--open @endif" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+								<li class="kt-menu__item  kt-menu__item--submenu @if($url==='vendor-type.index' || $url==='vendor.index' || $url==='vendor.create') kt-menu__item--open @endif" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
 												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 													<rect id="bound" x="0" y="0" width="24" height="24" />
 													<path d="M4,9.67471899 L10.880262,13.6470401 C10.9543486,13.689814 11.0320333,13.7207107 11.1111111,13.740321 L11.1111111,21.4444444 L4.49070127,17.526473 C4.18655139,17.3464765 4,17.0193034 4,16.6658832 L4,9.67471899 Z M20,9.56911707 L20,16.6658832 C20,17.0193034 19.8134486,17.3464765 19.5092987,17.526473 L12.8888889,21.4444444 L12.8888889,13.6728275 C12.9050191,13.6647696 12.9210067,13.6561758 12.9368301,13.6470401 L20,9.56911707 Z" id="Combined-Shape" fill="#000000" />
@@ -59,6 +60,8 @@
 											</svg></span><span class="kt-menu__link-text">Vendor Management</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
 									<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
 										<ul class="kt-menu__subnav">
+											<li class="kt-menu__item @if($url==='vendor.create') kt-menu__item--active @endif" aria-haspopup="true"><a href="{{route('vendor.create')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Add Vendor</span></a></li>
+											<li class="kt-menu__item @if($url==='vendor.index') kt-menu__item--active @endif" aria-haspopup="true"><a href="{{route('vendor.index')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Manage Vendor</span></a></li>
 											<li class="kt-menu__item @if($url==='vendor-type.index') kt-menu__item--active @endif" aria-haspopup="true"><a href="{{route('vendor-type.index')}}" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Vendor Type</span></a></li>
 										</ul>
 									</div>

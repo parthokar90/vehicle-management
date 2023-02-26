@@ -5,11 +5,7 @@
 <section class="content">
 
 
-@if ($message = Session::get('success'))
-<div class="alert alert-success">
-  <p>{{ $message }}</p>
-</div>
-@endif
+
 
 <style>
 .form-control {
@@ -43,12 +39,20 @@
 
 <div class="card">
     <div class="col-lg-12 card_header">
-        <h5> <i class="flaticon2-shelter"></i> View Staff Type</h5>
+        <h5> </h5>
     </div>
 </div>
 
 <div class="card">
+<div class="col-lg-12 card_header">
+        <h5> <i class="flaticon2-shelter"></i> View Staff Type</h5>
+    </div>
 <div class="container-fluid">
+@if ($message = Session::get('success'))
+<div class="alert alert-success">
+  <p>{{ $message }}</p>
+</div>
+@endif
     <div class="col-lg-12 margin-tb">
         
      </div>
@@ -72,7 +76,7 @@
                 <td>{{++$key}}</td>
                 <td>{{$item->staff_type}}</td>
                 <td>
-                <a class="btn btn-info btn-sm" href="{{ route('staff-type.show',$item->id) }}">Show</a>
+                <!-- <a class="btn btn-info btn-sm" href="{{ route('staff-type.show',$item->id) }}">Show</a> -->
                     <a class="btn btn-primary btn-sm" href="{{ route('staff-type.edit',$item->id) }}">Edit</a>
               
                 </td>
